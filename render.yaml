@@ -8,4 +8,4 @@ services:
     startCommand: python manage.py runserver 0.0.0.0:10000
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: core.settings
+        value: PersonalTutor.settings
