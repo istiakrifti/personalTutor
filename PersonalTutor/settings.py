@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-bha!52(bmki$m9!9jc=oc7+2r=9$cx9-u+v98e7+8n7o5v93d7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
+database_url = os.environ.get("DATABASE_URL")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 # ALLOWED_HOSTS = ['*']
@@ -105,20 +106,20 @@ WSGI_APPLICATION = 'PersonalTutor.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'testdb_d3v9',
-        'USER': 'testdb_d3v9_user',
-        'PASSWORD': 'RLBd5tZJHnwXL92pY9AHbQczY7Gk50bH',
-        'HOST': 'dpg-cs0s25u8ii6s73ctaqlg-a.oregon-postgres.render.com',
-        'PORT': '5432',
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'testdb_d3v9',
+#         'USER': 'testdb_d3v9_user',
+#         'PASSWORD': 'RLBd5tZJHnwXL92pY9AHbQczY7Gk50bH',
+#         'HOST': 'dpg-cs0s25u8ii6s73ctaqlg-a.oregon-postgres.render.com',
+#         'PORT': '5432',
+#     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.parse(database_url)
+}
 
 
 # Password validation
