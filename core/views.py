@@ -16,30 +16,30 @@ from django.core.files.base import ContentFile
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from datetime import timedelta
-from twilio.rest import Client
+# from twilio.rest import Client
 
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('/')
 
-def send_whatsapp_message(to, message_body):
-    account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-    auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-    client = Client(account_sid, auth_token)
+# def send_whatsapp_message(to, message_body):
+#     account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+#     auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+#     client = Client(account_sid, auth_token)
 
-    # Make sure to format the number correctly
-    formatted_number = f"+88{to}"  # Assuming `to` is passed in E.164 format
+#     # Make sure to format the number correctly
+#     formatted_number = f"+88{to}"  # Assuming `to` is passed in E.164 format
 
-    try:
-        message = client.messages.create(
-            body=message_body,
-            from_='whatsapp:+14155238886',
-            to=f'whatsapp:{formatted_number}'
-        )
-        print(f"Message sent: {message.sid}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+#     try:
+#         message = client.messages.create(
+#             body=message_body,
+#             from_='whatsapp:+14155238886',
+#             to=f'whatsapp:{formatted_number}'
+#         )
+#         print(f"Message sent: {message.sid}")
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
 
 def index(request):
     return render(request, 'index.html')
@@ -383,7 +383,7 @@ def registration_view(request):
             )
             user_profile.save()
 
-            send_whatsapp_message(mobile_no, 'You have successfully registered in PersonalTutor! You can now log in.')
+            # send_whatsapp_message(mobile_no, 'You have successfully registered in PersonalTutor! You can now log in.')
 
             messages.success(request, 'Registration successful! You can now log in.')
             return redirect('/')
