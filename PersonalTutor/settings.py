@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-bha!52(bmki$m9!9jc=oc7+2r=9$cx9-u+v98e7+8n7o5v93d7
 database_url = os.environ.get("DATABASE_URL")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = ["127.0.0.1"]
