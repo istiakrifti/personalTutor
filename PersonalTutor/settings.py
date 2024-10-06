@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-bha!52(bmki$m9!9jc=oc7+2r=9$cx9-u+v98e7+8n7o5v93d7
 database_url = os.environ.get("DATABASE_URL")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['personal-tutor.onrender.com', 'localhost']
 
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
@@ -175,3 +175,6 @@ SESSION_SAVE_EVERY_REQUEST = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICF_DIRS = [ os.path.join(BASE_DIR, 'static')]
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
