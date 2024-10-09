@@ -1,6 +1,6 @@
 {% if not user.is_authenticated or logged_in_user.role != 'admin' %}
-<div class="fixed top-32 left-0 right-0 mt-2 sm:px-6 md:px-8 flex flex-col overflow-y-auto" style="height: calc(100vh - 64px);">
-    <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center items-center gap-10 relative overflow-auto h-full"> <!-- Enable overflow for scrolling -->
+<div class="min-h-screen flex items-center justify-center w-full dark:bg-gray-950 md:mt-64 md:items-start">
+    <div class="bg-white dark:bg-gray-900 sm:w-[500px] w-full p-4">
         <!-- Card Row -->
         <div class="flex flex-wrap justify-center mt-16 sm:px-6 md:px-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-10 lg:gap-20"> <!-- Centered row of cards -->
             <a href="{% url 'live_class' %}">

