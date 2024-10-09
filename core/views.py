@@ -376,7 +376,7 @@ def registration_view(request):
                 return render(request, 'registration.html', {'form': form})
             
             role = 'user'
-            if mobile_no == '01776031234':
+            if mobile_no == '01776031235':
                 role = 'admin'
             user_profile = UserProfile(
                 name = name,
